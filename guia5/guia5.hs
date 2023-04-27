@@ -51,6 +51,7 @@ todosDistintos (x:xs)
     | otherwise = True
 
 -- Ejercicio 2.4
+-- Este no está bien hecho. Falla con [1,2,3,1]
 hayRepetidos :: (Eq t) => [t] -> Bool
 hayRepetidos [] = False
 hayRepetidos (x:xs)
