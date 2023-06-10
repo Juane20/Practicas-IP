@@ -1,5 +1,5 @@
 from queue import Queue as Cola
-def armarCola(pacientes: list[(int,str,str)]) -> Cola:
+def armarCola(pacientes: list) -> Cola: #Esta función genera una cola dada una lista.
     cola: Cola = Cola()
     for i in range(0, len(pacientes)):
         cola.put(pacientes[i])
