@@ -5,7 +5,7 @@ eliminarYcontarRepetidos list
     | otherwise = (list, [])
     where
         listaSinRepetidos = eliminarRepetidos list
-        listaContar = listaTuplas listaSinRepetidos list
+        listaContar = listaTuplas list
 
 
 tieneRepetidos :: [int] -> Bool
@@ -26,9 +26,11 @@ eliminarRepetidos (x:xs)
     | pertenece x xs = eliminarRepetidos xs
     | otherwise = (x:eliminarRepetidos xs)
 
-listaTuplas :: [int] -> [int] -> [(int,int)]
-listaTuplas [] [] = []
-listaTuplas (x:xs) l2 = (x, cantApariciones x l2) ++ listaTuplas xs l2
+listaTuplas :: [int] -> [(int,int)]
+listaTuplas [] = []
+listaTuplas (x:xs)
+    | cantApariciones x xs > 1 = [(x,listaTuplas xs)]
+    | otherwise = listaTuplas x
 
 cantApariciones :: (Eq t) => t -> [t] -> int
 cantApariciones _ [] = 0
